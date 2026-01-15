@@ -1,0 +1,354 @@
+/* =========================
+   VARIABLES
+========================= */
+:root {
+  --bg-main: #0f172a;
+  --bg-section: #111827;
+  --bg-card: #1f2937;
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --accent: #3b82f6;
+  --accent-soft: rgba(59,130,246,0.15);
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background: rgba(17, 24, 39, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.nav h1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+/* =========================
+   BOUTONS LANGUE
+========================= */
+.lang-switch {
+  display: flex;
+  gap: 10px;
+}
+
+.lang-switch button {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.lang-switch button:hover,
+.lang-switch button.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url("../assets/images/hero-bg.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: zoomBg 20s ease-in-out infinite alternate;
+}
+
+@keyframes zoomBg {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 800px;
+}
+
+.hero-content h2 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  margin-top: 15px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 34px;
+  background: var(--accent);
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+section {
+  padding: 100px 10%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+section p {
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* =========================
+   SKILLS / PILL
+========================= */
+.skills {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.skills span {
+  display: inline-block;
+  margin: 8px;
+  padding: 10px 22px;
+  background: var(--bg-card);
+  border-radius: 25px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease, transform 0.3s ease;
+}
+
+.skills span:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   CARDS (EXPÉRIENCE & PROJETS)
+========================= */
+.card, .project-card {
+  background: var(--bg-card);
+  padding: 28px;
+  margin-top: 30px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover, .project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+}
+
+.card h4, .project-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.card p, .project-card p {
+  text-align: left;
+}
+
+.project-tech span {
+  display: inline-block;
+  margin: 5px 8px;
+  padding: 6px 12px;
+  background: var(--bg-main);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+/* =========================
+   TIMELINE
+========================= */
+.timeline {
+  position: relative;
+  margin-top: 60px;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--accent-soft);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  display: flex;
+  gap: 30px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--bg-main);
+}
+
+.timeline-date {
+  min-width: 120px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.timeline-content {
+  background: var(--bg-card);
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.timeline-content h4 {
+  font-size: 1.05rem;
+  margin-bottom: 5px;
+}
+
+.timeline-content h5 {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* =========================
+   CONTACT
+========================= */
+#contact-fr p, #contact-en p {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+#contact-fr a, #contact-en a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#contact-fr a:hover, #contact-en a:hover {
+  color: #2563eb;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-muted);
+  background: var(--bg-section);
+  font-size: 0.85rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .hero-content h2 { font-size: 2.2rem; }
+  section { padding: 80px 6%; }
+  .nav ul { display: none; }
+}
+
+@media (max-width: 500px) {
+  section { padding: 60px 5%; }
+  .timeline { padding-left: 20px; }
+  .timeline-item { flex-direction: column; gap: 10px; }
+  .timeline-date { font-size: 0.85rem; }
+}
